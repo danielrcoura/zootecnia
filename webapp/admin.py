@@ -1,0 +1,20 @@
+from django.contrib import admin
+from .models import Leite, Propriedade, Tipo, Sexo, Raca, Evolucao, Estado, AnimaisEnum, AnimaisCol, Atividade, OcorAtividade, Cobertura, Parto, Ocorrencia, Perda, Produto, Venda
+
+admin.site.register(Leite)
+admin.site.register(Propriedade)
+admin.site.register(Tipo)
+admin.site.register(Sexo)
+admin.site.register(Raca)
+admin.site.register(Evolucao)
+admin.site.register(Estado)
+admin.site.register(AnimaisEnum)
+admin.site.register(AnimaisCol)
+admin.site.register(Atividade)
+admin.site.register(OcorAtividade)
+admin.site.register(Cobertura)
+admin.site.register(Parto)
+admin.site.register(Ocorrencia)
+admin.site.register(Perda)
+admin.site.register(Produto)
+admin.site.register(Venda)
