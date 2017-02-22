@@ -1,0 +1,473 @@
+{% load staticfiles %}
+
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+	<title>Sistema de Controle Zootécnico</title>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    
+    <!-- Bootstrap Core CSS -->
+    <link href="{% static 'bootstrap/vendor/bootstrap/css/bootstrap.min.css' %}" rel="stylesheet">
+
+    <!-- MetisMenu CSS -->
+    <link href="{% static 'bootstrap/vendor/metisMenu/metisMenu.min.css' %}" rel="stylesheet">
+
+    <!-- Custom CSS -->
+    <link href="{% static 'bootstrap/dist/css/sb-admin-2.css' %}" rel="stylesheet">
+
+    <!-- Morris Charts CSS -->
+    <link href="{% static 'bootstrap/vendor/morrisjs/morris.css' %}" rel="stylesheet">
+
+    <!-- Custom Fonts -->
+    <link href="{% static 'bootstrap/vendor/font-awesome/css/font-awesome.min.css' %}" rel="stylesheet" type="text/css">
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+</head>
+
+<body>
+
+    <div id="wrapper">
+
+        <!-- Navigation -->
+        <nav class="navbar navbar-default navbar-static-top" role="navigation" style="margin-bottom: 0">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="index.html">Sistema de Controle Zootécnico</a>
+            </div>
+
+            <div class="navbar-default sidebar" role="navigation">
+                <div class="sidebar-nav navbar-collapse tabbable">
+                    <ul class="nav" id="side-menu">
+                        <li class="sidebar-search">
+                            <div class="input-group custom-search-form">
+                                <input type="text" class="form-control" placeholder="Pesquisar animais...">
+                                <span class="input-group-btn">
+                                <button class="btn btn-default" type="button">
+                                    <i class="fa fa-search"></i>
+                                </button>
+                            </span>
+                            </div>
+
+                        </li>
+                        <li>
+                            <a href="#dash"  data-toggle="tab"><i class="fa fa-dashboard fa-fw"></i> Dashboard</a>
+                        </li>
+                        <li>
+                            <a href="#"><i class="fa fa-bar-chart-o fa-fw"></i> Animais<span class="fa arrow"></span></a>
+                            <ul class="nav nav-second-level">
+                                <li>
+                                    <a href="#cadastrar" data-toggle="tab">Cadastrar</a>
+                                </li>
+                                <li>
+                                    <a href="#perda" data-toggle="tab">Perda</a>
+                                </li>
+								<li>
+                                    <a href="#cobertura" data-toggle="tab">Cobertura</a>
+                                </li>                              
+                                <li>
+                                    <a href="#parto" data-toggle="tab">Parto</a>
+                                </li>
+                                <li>
+                                    <a href="#ocorrencia" data-toggle="tab">Ocorrência</a>
+                                </li>
+                            </ul>
+                            <!-- /.nav-second-level -->
+                        </li>
+                        <li class="active">
+                            <a href="#leite" data-toggle="tab"><i class="fa fa-table fa-fw"></i> Leite</a>
+                        </li>
+                        <li>
+                            <a href="#vendas" data-toggle="tab"><i class="fa fa-bar-chart-o fa-fw"></i> Vendas</a>
+                        </li>
+                        <li>
+                            <a href="#atividades" data-toggle="tab"><i class="fa fa-edit fa-fw"></i> Atividades</a>
+                        </li>
+                        <li>
+                            <a href="#propriedade" data-toggle="tab"><i class="fa fa-table fa-fw"></i> Propriedade</a>
+                        </li>
+                    </ul>
+                </div>
+                <!-- /.sidebar-collapse -->
+            </div>
+        </nav>
+
+        <div id="page-wrapper">
+            <div class="row">
+                <div class="tab-content">
+		            
+		            <div id="dash" class="col-lg-12 tab-pane fade active">
+		                <h1 class="page-header">Dashboard</h1>
+		                <div class="col-lg-8">
+			                    <div class="panel panel-default">
+			                        <div class="panel-heading">
+			                            <i class="fa fa-bar-chart-o fa-fw"></i> Area Chart Example
+			                        </div>     
+			                        <div class="panel-body">
+			                            <div id="morris-area-chart"></div>
+			                        </div>
+			                    </div>                
+			                </div>
+		                <div class="row">
+			                
+			             
+			                <div class="col-lg-4">
+			                    <div class="panel panel-default">
+			                        <div class="panel-heading">
+			                            <i class="fa fa-bell fa-fw"></i> Notifications Panel
+			                        </div>
+			                       
+			                        <div class="panel-body">
+			                            <div class="list-group">
+			                                <a href="" class="list-group-item">
+			                                    <i class="fa fa-comment fa-fw"></i> New Comment
+			                                    <span class="pull-right text-muted small"><em>4 minutes ago</em>
+			                                    </span>
+			                                </a>
+			                                <a href="" class="list-group-item">
+			                                    <i class="fa fa-twitter fa-fw"></i> 3 New Followers
+			                                    <span class="pull-right text-muted small"><em>12 minutes ago</em>
+			                                    </span>
+			                                </a>
+			                                <a href="" class="list-group-item">
+			                                    <i class="fa fa-envelope fa-fw"></i> Message Sent
+			                                    <span class="pull-right text-muted small"><em>27 minutes ago</em>
+			                                    </span>
+			                                </a>
+			                                <a href="" class="list-group-item">
+			                                    <i class="fa fa-tasks fa-fw"></i> New Task
+			                                    <span class="pull-right text-muted small"><em>43 minutes ago</em>
+			                                    </span>
+			                                </a>
+			                                <a href="" class="list-group-item">
+			                                    <i class="fa fa-upload fa-fw"></i> Server Rebooted
+			                                    <span class="pull-right text-muted small"><em>11:32 AM</em>
+			                                    </span>
+			                                </a>
+			                                <a href="" class="list-group-item">
+			                                    <i class="fa fa-bolt fa-fw"></i> Server Crashed!
+			                                    <span class="pull-right text-muted small"><em>11:13 AM</em>
+			                                    </span>
+			                                </a>
+			                                <a href="" class="list-group-item">
+			                                    <i class="fa fa-warning fa-fw"></i> Server Not Responding
+			                                    <span class="pull-right text-muted small"><em>10:57 AM</em>
+			                                    </span>
+			                                </a>
+			                                <a href="" class="list-group-item">
+			                                    <i class="fa fa-shopping-cart fa-fw"></i> New Order Placed
+			                                    <span class="pull-right text-muted small"><em>9:49 AM</em>
+			                                    </span>
+			                                </a>
+			                                <a href="" class="list-group-item">
+			                                    <i class="fa fa-money fa-fw"></i> Payment Received
+			                                    <span class="pull-right text-muted small"><em>Yesterday</em>
+			                                    </span>
+			                                </a>
+			                            </div>
+			                         
+			                            <a href="" class="btn btn-default btn-block">View All Alerts</a>
+			                        </div>                    
+			                    </div>
+			                </div>
+			            </div>
+		            </div>
+		            
+		            <div id="cadastrar" class="col-lg-12 tab-pane fade">
+		                <h1 class="page-header">Cadastrar</h1>
+			            <div class="row col-lg-8">
+			                <label>Tipo</label>
+			                <select class="form-control"> 
+			                	<option>Bovino</option>		<!-- return 0-->
+			                	<option>Ovino</option>		<!-- return 0-->
+			                	<option>suíno</option>		<!-- return 0-->
+			                	<option>caprino</option>	<!-- return 0-->
+			                	<option>equino</option>		<!-- return 1-->
+			                	<option>ave</option>		<!-- return 1-->
+			                	<option>peixe</option>		<!-- return 1-->
+			                </select>
+							<!-- escolha do tipo de cadastro, onte deve ser retornado um valor(0 or 1) caso 0 entra em cadastro tipy 0 caso 1 entra em cadastro type 1--> 
+			                <div id=cadastro_type0>
+				                <form >
+				                	<div class="form-grup row">
+				                		<div class="col-lg-4">
+						                	<label>numero:</label>
+						                	<input type="text" name="numero" class="form-control">
+						                </div>
+						                <div class="col-lg-4">
+						                	<label>numero do pai:</label>
+						                	<input type="text" name="numero do pai" class="form-control">
+						                </div>
+						                <div class="col-lg-4">
+						                	<label>numero da mãe:</label>
+						                	<input type="text" name="numero da mãe" class="form-control">
+						                </div>
+				                	</div>
+				                	<div class="form-grup row">
+				                		<div class="col-lg-6">
+											<label>peso ao nascer:</label>
+						                	<input type="text" name="peso ao nascer" class="form-control">
+				                		</div>
+				                		<div class="col-lg-6">
+						                	<label>peso ao desmame:</label>
+						                	<input type="text" name="peso ao desmame" class="form-control">			      
+						              	</div>          	
+				                	</div>
+									<div class="form-grup row">   
+										<div class="col-lg-3">	
+				                			<label>sexo:</label>
+				                			<select class="form-control">
+				                				<option>zmacho</option>
+				                				<option>femea</option>
+				                			</select>
+				                		</div>
+				                		<div class="col-lg-3">	
+						                	<label>raça:</label>
+						                	<select class="form-control">
+						                		<option>type1</option>
+						                		<option>type2</option>
+						                	</select>
+						                </div>
+						                <div class="col-lg-3">
+						                	<label>evolução:</label>
+						                	<select class="form-control">
+						                		<option>type1</option>
+						                		<option>type2</option>
+						                	</select>			                	
+						                </div>
+						                <div class="col-lg-3">
+						                	<label>estado:</label>
+						                	<select class="form-control">
+						                		<option>type1</option>
+						                		<option>type2</option>
+						                	</select>
+						                </div>
+				                	</div>
+				                	<div class="form-grup row">
+				                		<div class="col-lg-6">
+						                	<label>cor:</label>
+						                	<input type="text" name="cor" class="form-control">		
+						                </div>
+						                <div class="col-lg-6">	                	
+						                	<label>propriedade:</label>
+						                	<select class="form-control">
+						                		<option>type1</option>
+						                		<option>type2</option>
+						                	</select>
+						                </div>
+						            </div>
+						            <div class="btn-grup btn-grup-lg"><br>
+					                	<button class="btn btn-primary " type="submit">Reset</button>
+					                	<button class="btn btn-primary" type="submit">Concluir Cadastro</button>
+						            </div>
+				                </form>
+			                </div>
+			                <div id=cadastro_type1>
+			                	<form>
+			                		<label>quantidade</label>
+			                		<input type="text" name="quantidade" class="form-control">
+			                		<label>raça:</label>
+				                	<select class="form-control">
+				                		<option>type1</option>
+				                		<option>type2</option>
+				                	</select>
+				                	<label>propriedade:</label>
+				                	<select class="form-control">
+				                		<option>type1</option>
+				                		<option>type2</option>
+				                	</select>
+				                	<div class="btn-grup btn-grup-lg"><br>
+					                	<button class="btn btn-primary " type="submit">Reset</button>
+					                	<button class="btn btn-primary" type="submit">Concluir Cadastro</button>
+						            </div>
+			                	</form>
+			                </div>
+		                </div> 
+		                <div id=0></div>
+		            </div>
+
+		            <div id="perda" class="col-lg-12 tab-pane fade">
+		                <h1 class="page-header">Perda</h1>
+		                <div class="container-fluid col-lg-3">
+		                	<div>
+				                	<div class="row">
+				                		<label>Animal: </label>
+				                		<select class="form-control">
+				                			<option>animal x</option>
+				                			<option>animal x</option>
+				                			<option>animal x</option>
+				                			<option>animal x</option>
+				                		</select>
+				                	</div>
+				                	<div class="row">	
+				                		<label>Causa: </label>
+				                		<input type="text" name="Causa" class="form-control">
+				                	</div>
+				                	<div class="row">
+				                		<label>Data: </label>
+				                		<input type="text" name="data" class="form-control">
+				                	</div>
+				                	<div class="row">
+				                		<label>Idade: </label>
+				                		<input type="text" name="Idade" class="form-control">
+				                	</div>
+				                	<div class="btn-grup btn-grup-lg"><br>
+						                	<button class="btn btn-primary " type="submit">Reset</button>
+						                	<button class="btn btn-primary" type="submit">Concluir</button>
+							        </div>
+		                	</div>
+		                </div>
+		            </div>
+
+		            <div id="cobertura" class="col-lg-12 tab-pane fade">
+		                <h1 class="page-header">Cobertura</h1>
+		                <div class="container-fluid col-lg-3">
+		                	<div>
+			                	<div class="row">	
+			                		<label>Responsavel: </label>
+			                		<input type="text" name="Causa" class="form-control">
+			                	</div>
+			                	<div class="row">
+			                		<label>Reprodutor: </label>
+			                		<select class="form-control">
+			                			<option>reprodutor x</option>
+			                			<option>reprodutor x</option>
+			                			<option>reprodutor x</option>
+			                			<option>reprodutor x</option>
+			                		</select>
+			                	</div>
+			                	<div class="row">
+			                		<label>Matriz: </label>
+			                		<input type="text" name="matriz" class="form-control">
+			                	</div>
+			                	<div class="row">
+			                		<label>Data: </label>
+			                		<input type="text" name="data" class="form-control">
+			                	</div>
+			                	<div class="btn-grup btn-grup-lg"><br>
+					                	<button class="btn btn-primary " type="submit">Reset</button>
+					                	<button class="btn btn-primary" type="submit">Concluir</button>
+						        </div>
+		                	</div>
+		                </div>
+		            </div>
+
+		            <div id="parto" class="col-lg-12 tab-pane fade">
+		                <h1 class="page-header">Parto</h1>	
+		                <div class="container-fluid col-lg-3">
+		                	<div>
+			                	<div class="row">	
+			                		<label>Numeros de crias: </label>
+			                		<input type="text" name="num_crias" class="form-control">
+			                	</div>
+			                	<div class="row">
+			                		<label>Reprodutor: </label>
+			                		<input type="text" name="reprodutor" class="form-control">
+			                	</div>
+			                	<div class="row">
+			                		<label>Matriz: </label>
+			                		<select class="form-control">
+			                			<option>Matriz x</option>
+			                			<option>Matriz x</option>
+			                			<option>Matriz x</option>
+			                			<option>Matriz x</option>
+			                		</select>
+			                	</div>
+			                	<div class="row">
+			                		<label>Data: </label>
+			                		<input type="text" name="data" class="form-control">
+			                	</div>
+			                	<div class="btn-grup btn-grup-lg"><br>
+	D				                	<button class="btn btn-primary " type="submit">Reset</button>
+					                	<button class="btn btn-primary" type="submit">Concluir</button>
+						        </div>
+		                	</div>     
+		                </div>          
+		            </div>
+
+		            <div id="ocorrencia" class="col-lg-12 tab-pane fade">
+		                <h1 class="page-header">Ocorrência</h1>
+		                <div class="container-fluid col-lg-3">
+		                	<div>
+			                	<div class="row">	
+			                		<label>Animal: </label>
+			                		<select class="form-control">
+			                			<option>Animal x</option>
+			                			<option>Animal x</option>
+			                			<option>Animal x</option>
+			                			<option>Animal x</option>
+			                		</select>
+			                	</div>
+			                	<div class="row">
+			                		<label>Ocorrencia: </label>
+			                		<textarea name="ocorrencia" cols="60" rows="3"></textarea>
+			                	</div>
+			                	<div class="row">
+			                		<label>Data: </label>
+			                		<input type="text" name="data" class="form-control">
+			                	</div>
+			                	<div class="row">
+			                		<label>Tratamento: </label>
+			                		<textarea name="Tratamento" cols="60" rows="3"></textarea>
+			                	</div>
+			                	<div class="row">
+			                		<label>Custo: </label>
+			                		<input type="text" name="custo" class="form-control">
+			                	</div>
+			                	<div class="btn-grup btn-grup-lg"><br>
+					                	<button class="btn btn-primary " type="submit">Reset</button>
+					                	<button class="btn btn-primary" type="submit">Concluir</button>
+						        </div>
+		                	</div>     
+		                </div>
+		            </div>
+
+		            <div id="leite" class="col-lg-12 tab-pane fade ac">
+		                <h1 class="page-header">Leite</h1>
+		            </div>
+
+		            <div id="vendas" class="col-lg-12 tab-pane fade">
+		                <h1 class="page-header">Vendas</h1>
+		            </div>
+
+		            <div id="atividades" class="col-lg-12 tab-pane fade">
+		                <h1 class="page-header">Atividades</h1>
+		            </div>
+
+		            <div id="propriedade" class="col-lg-12 tab-pane fade">
+		                <h1 class="page-header">Propriedade</h1>
+		            </div>
+		        </div>
+            </div>
+        </div>
+    </div>
+
+
+    <script src="{% static 'bootstrap/vendor/jquery/jquery.min.js' %}"></script>
+    <script src="{% static 'bootstrap/vendor/bootstrap/js/bootstrap.min.js' %}"></script>
+    <script src="{% static 'bootstrap/vendor/metisMenu/metisMenu.min.js' %}"></script>
+    <!-- Morris Charts JavaScript -->
+    <script src="{% static 'bootstrap/vendor/raphael/raphael.min.js' %}"></script>
+    <script src="{% static 'bootstrap/vendor/morrisjs/morris.min.js' %}"></script>
+    <script src="{% static 'bootstrap/data/morris-data.js' %}"></script>
+    <!-- Custom Theme JavaScript -->
+    <script src="{% static 'bootstrap/dist/js/sb-admin-2.js' %}"></script>
+
+</body>
+
+</html>
