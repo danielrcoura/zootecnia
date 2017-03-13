@@ -1,0 +1,21 @@
+{% extends "./base.html" %}
+{% load staticfiles %}
+{% load bootstrap3 %}
+
+{% block title %} {% block title_page %} Vendas {% endblock %} {% endblock %}
+
+{% block body%}
+	<form method="POST">
+        {% csrf_token %}
+        {% for field in form_venda %}
+            <div class="col-lg-7">
+                {% bootstrap_field field %}
+            </div>
+        {% endfor %}
+
+        <div class="btn-grup btn-grup-lg col-lg-12"><br>
+            <button class="btn btn-danger " type="reset">Reset</button>
+            <button class="btn btn-primary" type="submit">Concluir</button>
+        </div>
+    <form>	
+{% endblock %}

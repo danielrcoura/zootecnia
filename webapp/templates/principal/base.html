@@ -1,0 +1,63 @@
+{% load staticfiles %}
+{% load bootstrap3 %}
+{% bootstrap_css %}
+
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <title>{% block title %} {% endblock %}</title>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    
+    <!-- Bootstrap Core CSS -->
+    <link href="{% static 'bootstrap/css/bootstrap.min.css' %}" rel="stylesheet">
+
+    <!-- Custom CSS -->
+    <link href="{% static 'bootstrap/css/navbar.css' %}" rel="stylesheet">
+
+    <!-- Custom Fonts -->
+    <link href="{% static 'bootstrap/css/font-awesome/css/font-awesome.min.css' %}" rel="stylesheet" type="text/css">
+
+    <!-- Meu CSS -->
+    <link href="{% static 'css/base.css' %}" rel="stylesheet">
+
+    <!-- Icone -->
+    <link href="{% static 'img/favico.png' %}" rel="shortcut icon" type="image/png">
+</head>
+
+<body>
+
+    <div id="wrapper">
+
+        <!-- Sidebar -->
+
+        {% include "./navbar.html" %}
+            
+
+        <div id="page-wrapper">
+            <div class="col-md-12 titulo">
+                <h1 title={% block descricao %} {% endblock %}>{% block title_page %} {% endblock %}</h1>
+            </div>
+
+            {% block body %} {% endblock %}
+        </div>
+    </div>
+
+
+    <script src="{% static 'bootstrap/js/jquery/jquery.min.js' %}"></script>
+    <script src="{% static 'bootstrap/js-bootstrap/bootstrap.min.js' %}"></script>
+    <script src="{% static 'bootstrap/vendor/metisMenu/metisMenu.min.js' %}"></script>
+
+    <!-- Custom Theme JavaScript -->
+    <script src="{% static 'bootstrap/js/js-sb/sb-admin-2.js' %}"></script>
+
+    <!-- Meu JS -->
+    {% block js %} {% endblock %}
+
+</body>
+
+</html>

@@ -12,8 +12,10 @@ SECRET_KEY = '9ptxxle9x6i!r6p3#vgiarq9o5uj0e4#3mtohhli+h(vku1wcd'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
-
+ALLOWED_HOSTS = [
+    'daniboyrcifpb.pythonanywhere.com',
+    '127.0.0.1',
+]
 
 # Application definition
 
@@ -25,6 +27,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'webapp',
+    'bootstrap3',
 ]
 
 MIDDLEWARE = [
@@ -106,3 +109,4 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/1.10/howto/static-files/
 
 STATIC_URL = '/static/'
+STATIC_ROOT = os.path.join(BASE_DIR, 'static')

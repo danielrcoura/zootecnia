@@ -69,7 +69,7 @@ class OcorAtividade(models.Model):
 
 class Cobertura(models.Model):
 	responsavel = models.CharField(max_length=255)
-	reprodutor = models.ForeignKey(AnimaisEnum, on_delete=models.CASCADE)
+	reprodutor = models.IntegerField()
 	matriz = models.IntegerField()
 	data = models.DateField(default=date.today)
 	def __str__(self):

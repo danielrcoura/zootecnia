@@ -1,0 +1,72 @@
+<nav class="navbar navbar-default navbar-static-top" role="navigation" style="margin-bottom: 0">
+            
+    <!-- Topo -->
+
+    <div class="navbar-header">
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href={% url 'index' %}>Sistema de Controle Zootécnico</a>
+    </div>
+
+    <!-- Lado -->
+
+    <div class="navbar-default sidebar" role="navigation">
+        <div class="sidebar-nav navbar-collapse tabbable">
+            <ul class="nav" id="side-menu">
+                
+                <!-- Barra de Pesquisa -->
+
+                <li class="sidebar-search">
+                    <div class="input-group custom-search-form">
+                        <input type="text" class="form-control" placeholder="Pesquisar animais...">
+                        <span class="input-group-btn">
+                        	<button class="btn btn-default" type="button">
+                            	<i class="fa fa-search" style="height: 20px;"></i>
+                        	</button>
+                    	</span>
+                    </div>
+                </li>
+
+                <li><a href={% url "dashboard" %}><i class="fa fa-dashboard fa-fw"></i> Dashboard</a></li>
+                <li>
+                    <a href="#"><i class="fa fa-bar-chart-o fa-fw"></i> Animais<span class="fa arrow"></span></a>
+                    <ul class="nav nav-second-level">
+                        <li>
+                            <a href={% url "cadastro" %}>Cadastrar</a>
+                        </li>
+                        <li>
+                            <a href={% url "perdas" %}>Perda</a>
+                        </li>
+						<li>
+                            <a href={% url "cobertura" %}>Cobertura</a>
+                        </li>                              
+                        <li>
+                            <a href={% url "parto" %}>Parto</a>
+                        </li>
+                        <li>
+                            <a href={% url "ocorrencia" %}>Ocorrência</a>
+                        </li>
+                    </ul>
+                    <!-- /.nav-second-level -->
+                </li>
+                <li>
+                    <a href={% url "leite" %}><i class="fa fa-table fa-fw"></i> Leite</a>
+                </li>
+                <li>
+                    <a href={% url "venda" %}><i class="fa fa-bar-chart-o fa-fw"></i> Vendas</a>
+                </li>
+                <li>
+                    <a href={% url "atividade" %}><i class="fa fa-edit fa-fw"></i> Atividades</a>
+                </li>
+                <li>
+                    <a href={% url "propriedade" %}><i class="fa fa-table fa-fw"></i> Propriedade</a>
+                </li>
+            </ul>
+        </div>
+        <!-- /.sidebar-collapse -->
+    </div>
+</nav>

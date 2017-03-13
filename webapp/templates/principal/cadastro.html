@@ -1,0 +1,59 @@
+{% extends "./base.html" %}
+{% load staticfiles %}
+{% load bootstrap3 %}
+
+{% block title %} {% block title_page %} Cadastrar {% endblock %} {% endblock %}
+
+{% block descricao %} "Cadastro do animais" {% endblock %}
+
+{% block js %} <script src="{% static 'js/cadastro.js' %}"></script> {% endblock %}
+
+{% block body %}
+	<div class="col-lg-12" style="margin-bottom: 13px;">
+		<label for="org">Tipo</label>
+	    <select id="org" class="form-control" name="org_list" onChange="tipo(this)">
+			<option  value="" >---- SELECT ----</option>
+			<option  value="enumerado">Bovino</option>
+			<option  value="enumerado">Caprino</option>
+			<option  value="enumerado">Ovino</option>
+			<option  value="enumerado">Suíno</option>
+			<option  value="coletivo">Peixe</option>
+			<option  value="coletivo">Ave</option>
+			<option  value="coletivo">Equino</option>
+		</select>
+	</div>
+
+	<div style="display: none;" id="enumerado">
+	    <form method="POST" id="form_enum">
+	    	{% csrf_token %}
+	    	{% for field in form_enum %}
+	    		<div class="col-lg-4">
+	    			{% bootstrap_field field %}
+	    		</div>
+	    	{% endfor %}
+
+
+			<div class="btn-grup btn-grup-lg col-lg-12"><br>
+		        <button class="btn btn-danger " onclick="reseta(this)"  type="">Reset</button>
+		        <button class="btn btn-primary" type="submit">Concluir</button>
+			</div>
+	    <form>
+	</div>
+
+	<div style="display: none;" id="coletivo">
+		<form method="POST" id="form-col">
+	    	{% csrf_token %}
+	    	{% for field in form_col %}
+	    		<div class="col-lg-7">
+	    			{% bootstrap_field field %}
+	    		</div>
+	    	{% endfor %}
+
+
+			<div class="btn-grup btn-grup-lg col-lg-12"><br>
+		        <button class="btn btn-danger" onclick="reseta(this)" type="">Reset</button>
+		        <button class="btn btn-primary" type="submit">Concluir</button>
+			</div>
+	    <form>
+	</div>
+{% endblock %}
