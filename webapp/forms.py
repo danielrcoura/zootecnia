@@ -5,7 +5,7 @@ class AnimaisEnumForm(forms.ModelForm):
 
     class Meta:
         model = AnimaisEnum
-        fields = ('numero', 'pai', 'mae', 'peso_nasc', 'peso_desm', 'propriedade', 'sexo', 'raca', 'evolucao', 'estado')
+        fields = ('numero', 'pai', 'mae', 'peso_nasc', 'peso_desm', 'propriedade', 'sexo', 'raca', 'evolucao', 'estado', 'tipo')
 
 class AnimaisColForm(forms.ModelForm):
 	
@@ -48,6 +48,9 @@ class PropriedadeForm(forms.ModelForm):
 	class Meta:
 		model = Propriedade
 		fields = ('nome', 'proprietario', 'endereco', 'tamanho', 'observacoes')
+		widgets = {
+            'observacoes': forms.Textarea(attrs={'cols': 40, 'rows': 5}),
+        }
 
 class PerdaForm(forms.ModelForm):
 	
@@ -55,3 +58,16 @@ class PerdaForm(forms.ModelForm):
 		model = Perda
 		fields = ('animal', 'idade', 'causa', 'data')
 
+class TipoForm(forms.Form):
+    FILTER_CHOICES = (
+    	('---------', '---------'),
+        ('Bovino', 'Bovino'),
+        ('Caprino', 'Ovino'),
+        ('Caprino', 'Caprino'),
+        ('Suino', 'Suíno'),
+        ('Equino', 'Equino'),
+        ('Ave', 'Ave'),
+        ('Peixe', 'Peixe'),
+    )
+
+    tipo = forms.ChoiceField(choices = FILTER_CHOICES, widget=forms.Select(attrs={"onchange": "teste(this)"}))

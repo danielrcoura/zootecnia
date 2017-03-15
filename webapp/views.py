@@ -8,6 +8,7 @@ from .forms import (AnimaisEnumForm,
 	VendaForm, 
 	PropriedadeForm, 
 	PerdaForm,
+	TipoForm,
 )
 
 def index(request): 
@@ -25,9 +26,11 @@ def cadastro(request):
 	else:
 		form_enum = AnimaisEnumForm()
 		form_col = AnimaisColForm()
+		form_tipo = TipoForm()
 		
 	context ={'form_enum': form_enum, 
 	'form_col': form_col,
+	'form_tipo': form_tipo,
 	}
 
 	return render(request, "principal/cadastro.html", context)

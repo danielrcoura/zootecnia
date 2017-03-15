@@ -32,6 +32,8 @@ class Evolucao(models.Model):
 
 class Estado(models.Model):
 	estado = models.CharField(max_length=255)
+	def __str__(self):
+		return self.estado
 
 class AnimaisEnum(models.Model):
 	numero = models.IntegerField()
@@ -40,7 +42,7 @@ class AnimaisEnum(models.Model):
 	pai = models.IntegerField()
 	mae = models.IntegerField()
 	propriedade = models.ForeignKey(Propriedade, on_delete=models.CASCADE)
-	tipo = models.ForeignKey(Tipo, on_delete=models.CASCADE)
+	tipo = models.ForeignKey(Tipo, on_delete=models.CASCADE, blank=True)
 	sexo = models.ForeignKey(Sexo, on_delete=models.CASCADE)
 	raca = models.ForeignKey(Raca, on_delete=models.CASCADE)
 	evolucao = models.ForeignKey(Evolucao, on_delete=models.CASCADE)
