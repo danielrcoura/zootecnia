@@ -4,4 +4,18 @@
 
 {% block title %} {% block title_page %} Atividades {% endblock %} {% endblock %}
 
-{% block body%} {% endblock %}
+{% block body%} 
+	<form method="POST">
+        {% csrf_token %}
+        {% for field in form_atividade %}
+            <div class="col-lg-7 col-md-7">
+                {% bootstrap_field field %}
+            </div>
+        {% endfor %}
+
+        <div class="btn-grup btn-grup-lg col-lg-12 col-md-12"><br>
+            <button class="btn btn-danger " type="reset">Reset</button>
+            <button class="btn btn-primary" type="submit">Concluir</button>
+        </div>
+    <form>
+{% endblock %}

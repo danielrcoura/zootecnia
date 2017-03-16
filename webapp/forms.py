@@ -1,5 +1,15 @@
 from django import forms
-from .models import AnimaisEnum, AnimaisCol, Cobertura, Parto, Ocorrencia, Leite, Venda, Propriedade, Perda
+from .models import (AnimaisEnum, 
+	AnimaisCol,
+	Cobertura,
+	Parto,
+	Ocorrencia,
+	Leite,
+	Venda,
+	Propriedade,
+	Perda,
+	OcorAtividade,
+	)
 
 class AnimaisEnumForm(forms.ModelForm):
 
@@ -71,3 +81,9 @@ class TipoForm(forms.Form):
     )
 
     tipo = forms.ChoiceField(choices = FILTER_CHOICES, widget=forms.Select(attrs={"onchange": "teste(this)"}))
+
+class OcorAtividadeForm(forms.ModelForm):
+	
+	class Meta:
+		model = OcorAtividade
+		fields = ('atividade', 'data')

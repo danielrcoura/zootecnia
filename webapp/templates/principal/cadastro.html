@@ -21,13 +21,13 @@
 	    <form method="POST" id="form_enum">
 	    	{% csrf_token %}
 	    	{% for field in form_enum %}
-	    		<div class="col-lg-4">
+	    		<div class="col-lg-4 col-md-4">
 	    			{% bootstrap_field field %}
 	    		</div>
 	    	{% endfor %}
 
 
-			<div class="btn-grup btn-grup-lg col-lg-12"><br>
+			<div class="btn-grup btn-grup-lg col-lg-12 col-md-12"><br>
 		        <button class="btn btn-danger " type="reset">Reset</button>
 		        <button class="btn btn-primary" type="submit">Concluir</button>
 			</div>

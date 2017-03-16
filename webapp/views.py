@@ -8,6 +8,7 @@ from .forms import (AnimaisEnumForm,
 	VendaForm, 
 	PropriedadeForm, 
 	PerdaForm,
+	OcorAtividadeForm,
 	TipoForm,
 )
 
@@ -114,7 +115,17 @@ def venda(request):
 	return render(request, "principal/venda.html", context)
 
 def atividade(request):
-	return render(request, "principal/atividade.html", {})
+	if request.method == "POST":
+		form_atividade = OCorAtividadeForm(request.POST)
+		if form_atividade.is_valid():
+			post = form_atividade.save(commit=False)
+			post.save()
+	else:
+		form_atividade = OcorAtividadeForm()
+
+	context ={'form_atividade': form_atividade}
+
+	return render(request, "principal/atividade.html", context)
 
 def propriedade(request):
 	if request.method == "POST":
