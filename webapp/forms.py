@@ -15,19 +15,19 @@ class AnimaisEnumForm(forms.ModelForm):
 
     class Meta:
         model = AnimaisEnum
-        fields = ('numero', 'pai', 'mae', 'peso_nasc', 'peso_desm', 'propriedade', 'sexo', 'raca', 'evolucao', 'estado', 'tipo')
+        fields = ('tipo', 'numero', 'pai', 'mae', 'peso_nasc', 'peso_desm', 'propriedade', 'sexo', 'raca', 'evolucao', 'estado')
 
 class AnimaisColForm(forms.ModelForm):
 	
 	class Meta:
 		model = AnimaisCol
-		fields = ('raca', 'quantidade', 'propriedade')
+		fields = ('tipo', 'raca', 'quantidade', 'propriedade')
 			
 class CoberturaForm(forms.ModelForm):
 	
 	class Meta:
 		model = Cobertura
-		fields = ('responsavel', 'reprodutor', 'matriz', 'data')
+		fields = ('reprodutor', 'matriz', 'data', 'responsavel')
 
 class PartoForm(forms.ModelForm):
 	
@@ -68,19 +68,14 @@ class PerdaForm(forms.ModelForm):
 		model = Perda
 		fields = ('animal', 'idade', 'causa', 'data')
 
-class TipoForm(forms.Form):
-    FILTER_CHOICES = (
-    	('---------', '---------'),
-        ('Bovino', 'Bovino'),
-        ('Caprino', 'Ovino'),
-        ('Caprino', 'Caprino'),
-        ('Suino', 'Suíno'),
-        ('Equino', 'Equino'),
-        ('Ave', 'Ave'),
-        ('Peixe', 'Peixe'),
-    )
+# class TipoForm(forms.Form):
+#     FILTER_CHOICES = (
+#         ('Enumerado', 'Enumerado'),
+#         ('Coletivo', 'Coletivo'),
 
-    tipo = forms.ChoiceField(choices = FILTER_CHOICES, widget=forms.Select(attrs={"onchange": "teste(this)"}))
+#     )
+
+#     tipo_cadastro = forms.ChoiceField(choices = FILTER_CHOICES, widget=forms.RadioSelect(attrs={"onchange": "teste(this)"}))
 
 class OcorAtividadeForm(forms.ModelForm):
 	

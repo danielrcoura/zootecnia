@@ -1,0 +1,34 @@
+{% extends "./../principal/base.html" %}
+{% load staticfiles %}
+{% load bootstrap3 %}
+
+{% block title %} {% block title_page %} Lista Cobertura {% endblock %} {% endblock %}
+
+{% block descricao %} "Apresentação visual das informações mais importantes" {% endblock %}
+
+{% block body%}
+
+<table class="table table-striped table-hover" id="tabela">
+    <thead>
+        <tr>
+            <th>Reprodutor</th>
+            <th>Matriz</th>
+            <th>Data</th>
+            <th>Responsável</th>
+        </tr>            
+    </thead>
+    <tbody>
+    	{% for field in list_cobertura %}
+    		<tr>
+	            <td>{{field.reprodutor}}</td>
+	            <td>{{field.matriz}}</td>
+	            <td>{{field.data}}</td>
+	            <td>{{field.responsavel}}</td>
+      		</tr>
+    	{% endfor %}
+        
+    </tbody>
+</table>
+
+
+{% endblock %}

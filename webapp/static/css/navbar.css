@@ -1,0 +1,35 @@
+/* barra de navegação */
+.zoo-navbar{
+	background: #fff;
+	
+}
+
+.zoo-brand-a{
+	height: 70px;
+	padding: 10px;
+}
+.zoo-brand-img{
+	height: 50px;
+	opacity: .75
+}
+.zoo-brand-img:hover{
+	opacity: 1;
+    -webkit-transform: scale(1.3);
+    -ms-transform: scale(1.3);
+    transform: scale(1.3);
+}
+/* links do menu */
+.zoo-a{ 
+	height: 70px;
+}
+/* img do menu */
+.zoo-img{
+	height: 28px;
+	opacity: .75;
+}
+.zoo-img:hover{
+	opacity: 1;
+    -webkit-transform: scale(1.2);
+    -ms-transform: scale(1.2);
+    transform: scale(1.2);
+}

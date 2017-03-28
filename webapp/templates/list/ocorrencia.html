@@ -1,0 +1,36 @@
+{% extends "./../principal/base.html" %}
+{% load staticfiles %}
+{% load bootstrap3 %}
+
+{% block title %} {% block title_page %} Lista Ocorrencia {% endblock %} {% endblock %}
+
+{% block descricao %} "Apresentação visual das informações mais importantes" {% endblock %}
+
+{% block body%}
+
+<table class="table table-striped table-hover" id="tabela">
+    <thead>
+        <tr>
+            <th>Animal</th>
+            <th>Custo</th>
+            <th>Data</th>
+            <th>Ocorrência</th>
+            <th>Tratamento</th>
+        </tr>            
+    </thead>
+    <tbody>
+    	{% for field in list_ocorrencia %}
+    		<tr>
+	            <td>{{field.animal}}</td>
+	            <td>{{field.custo}}</td>
+	            <td>{{field.data}}</td>
+	            <td>{{field.ocorrencia}}</td>
+                <td>tratamento</td>
+      		</tr>
+    	{% endfor %}
+        
+    </tbody>
+</table>
+
+
+{% endblock %}

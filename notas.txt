@@ -1,0 +1,9 @@
+1º reset apos submit no formulario 		1
+2º 2 select em perda (provavel radiobox) 	1
+3º pag matriz leite o total deve ser a soma de manha + tarde	3
+4º colocar unidades de medida nas listas	4
+5º adicionar em alguns parametros uma opção de cadastrar rapidamente (visando aprimorar a usabilidade do sistema)	2
+6º adicionar nas listas botões de navegação de pagina e selecao de quandade de itens por pagina 	3
+7º impedir cadastro para valores negativos 		3
+8º poder editar o item ao clicar sobre ele na listas 	3
+9º alterar css para cor tema na tabela		4

@@ -1,3 +1,20 @@
+body{
+	background: #1a8a43;
+}
+label{
+	color: #3050aa;
+}
+h1{
+	color: #1a8a43
+}
+
+#conteudo{
+	background: #fff;
+	padding: 0px 70px 70px 70px;
+	margin-top: 70px;
+	min-height: 85%;
+	box-shadow: 0px -1px 10px 1px black;
+}
 .titulo {
-	margin-bottom: 20px;
+	margin-bottom: 10px;
 }

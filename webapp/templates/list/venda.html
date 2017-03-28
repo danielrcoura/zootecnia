@@ -1,0 +1,34 @@
+{% extends "./../principal/base.html" %}
+{% load staticfiles %}
+{% load bootstrap3 %}
+
+{% block title %} {% block title_page %} Lista Venda {% endblock %} {% endblock %}
+
+{% block descricao %} "Apresentação visual das informações mais importantes" {% endblock %}
+
+{% block body%}
+
+<table class="table table-striped table-hover" id="tabela">
+    <thead>
+        <tr>
+            <th>Produto</th>
+            <th>Preço</th>
+            <th>Quantidade</th>
+            <th>Data</th>
+        </tr>            
+    </thead>
+    <tbody>
+    	{% for field in list_venda %}
+    		<tr>
+	            <td>{{field.produto}}</td>
+	            <td>{{field.preco}}</td>
+	            <td>{{field.quantidade}}</td>
+	            <td>{{field.data}}</td>
+      		</tr>
+    	{% endfor %}
+        
+    </tbody>
+</table>
+
+
+{% endblock %}

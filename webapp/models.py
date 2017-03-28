@@ -1,3 +1,4 @@
+
 from django.db import models
 from datetime import date
 
@@ -10,7 +11,12 @@ class Propriedade(models.Model):
 	def __str__(self):
 		return self.nome
 
-class Tipo(models.Model):
+class TipoEnum(models.Model):
+	tipo = models.CharField(max_length=255)
+	def __str__(self):
+		return self.tipo
+
+class TipoCol(models.Model):
 	tipo = models.CharField(max_length=255)
 	def __str__(self):
 		return self.tipo
@@ -42,16 +48,16 @@ class AnimaisEnum(models.Model):
 	pai = models.IntegerField()
 	mae = models.IntegerField()
 	propriedade = models.ForeignKey(Propriedade, on_delete=models.CASCADE)
-	tipo = models.ForeignKey(Tipo, on_delete=models.CASCADE, blank=True)
+	tipo = models.ForeignKey(TipoEnum, on_delete=models.CASCADE)
 	sexo = models.ForeignKey(Sexo, on_delete=models.CASCADE)
 	raca = models.ForeignKey(Raca, on_delete=models.CASCADE)
 	evolucao = models.ForeignKey(Evolucao, on_delete=models.CASCADE)
 	estado = models.ForeignKey(Estado, on_delete=models.CASCADE)
 	def __str__(self):
-		return str(self.numero)
+		return str(self.numero) + " - " +str(self.tipo)
 
 class AnimaisCol(models.Model):
-	tipo = models.ForeignKey(Tipo, on_delete=models.CASCADE)
+	tipo = models.ForeignKey(TipoCol, on_delete=models.CASCADE)
 	quantidade = models.IntegerField()
 	raca = models.ForeignKey(Raca, on_delete=models.CASCADE)
 	propriedade = models.ForeignKey(Propriedade, on_delete=models.CASCADE)

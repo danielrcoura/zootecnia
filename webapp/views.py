@@ -9,8 +9,19 @@ from .forms import (AnimaisEnumForm,
 	PropriedadeForm, 
 	PerdaForm,
 	OcorAtividadeForm,
-	TipoForm,
 )
+from .models import(
+	AnimaisEnum,
+	AnimaisCol,
+	Perda,
+	Cobertura,
+	Parto,
+	Ocorrencia,
+	Leite,
+	Venda,
+	OcorAtividade,
+	Propriedade,
+	)
 
 def index(request): 
     return render(request, "principal/index.html")
@@ -18,23 +29,36 @@ def index(request):
 def dashboard(request):
 	return render(request, "principal/dashboard.html", {})
 
-def cadastro(request):
+def enumerado(request):
 	if request.method == "POST":
 		form_enum = AnimaisEnumForm(request.POST)
+
 		if form_enum.is_valid():
 			post = form_enum.save(commit=False)
 			post.save()
 	else:
 		form_enum = AnimaisEnumForm()
-		form_col = AnimaisColForm()
-		form_tipo = TipoForm()
 		
-	context ={'form_enum': form_enum, 
-	'form_col': form_col,
-	'form_tipo': form_tipo,
+	context_enum ={
+	'form_enum': form_enum,
 	}
 
-	return render(request, "principal/cadastro.html", context)
+	return render(request, "principal/enumerado.html",context_enum)
+
+def coletivo(request):
+	if request.method == "POST":
+		form_col = AnimaisColForm(request.POST)
+		if form_col.is_valid():
+			post = form_col.save(commit=False)
+			post.save()
+	else:
+		form_col = AnimaisColForm()
+		
+	context_col ={
+	'form_col': form_col,
+	}
+		
+	return render(request, "principal/coletivo.html", context_col)
 
 def perdas(request):
 	if request.method == "POST":
@@ -116,7 +140,7 @@ def venda(request):
 
 def atividade(request):
 	if request.method == "POST":
-		form_atividade = OCorAtividadeForm(request.POST)
+		form_atividade = OcorAtividadeForm(request.POST)
 		if form_atividade.is_valid():
 			post = form_atividade.save(commit=False)
 			post.save()
@@ -139,3 +163,95 @@ def propriedade(request):
 	context ={'form_propriedade': form_propriedade}
 
 	return render(request, "principal/propriedade.html", context)
+
+def list_animal_enum(request):
+	animais_enum = AnimaisEnum.objects.all()
+	
+	context ={
+	'animais_enum': animais_enum,
+	}
+	
+	return render(request, "list/animal-enum.html", context)
+
+def list_animal_col(request):
+	animais_col = AnimaisCol.objects.all()
+	
+	context ={
+	'animais_col': animais_col,
+	}
+	
+	return render(request, "list/animal-col.html", context)
+
+def list_perdas(request):
+	list_perdas = Perda.objects.all()
+	
+	context ={
+	'list_perdas': list_perdas,
+	}
+	
+	return render(request, "list/perdas.html", context)
+
+def list_cobertura(request):
+	list_cobertura = Cobertura.objects.all()
+	
+	context ={
+	'list_cobertura': list_cobertura,
+	}
+	
+	return render(request, "list/cobertura.html", context)
+
+
+def list_parto(request):
+	list_parto = Parto.objects.all()
+	
+	context ={
+	'list_parto': list_parto,
+	}
+	
+	return render(request, "list/parto.html", context)
+
+def list_ocorrencia(request):
+	list_ocorrencia = Ocorrencia.objects.all()
+	
+	context ={
+	'list_ocorrencia': list_ocorrencia,
+	}
+	
+	return render(request, "list/ocorrencia.html", context)
+
+def list_leite(request):
+	list_leite = Leite.objects.all()
+	
+	context ={
+	'list_leite': list_leite,
+	}
+	
+	return render(request, "list/leite.html", context)
+
+def list_venda(request):
+	list_venda = Venda.objects.all()
+	
+	context ={
+	'list_venda': list_venda,
+	}
+	
+	return render(request, "list/venda.html", context)
+
+def list_atividade(request):
+	list_atividade = OcorAtividade.objects.all()
+	
+	context ={
+	'list_atividade': list_atividade,
+	}
+	
+	return render(request, "list/atividade.html", context)
+
+def list_propriedade(request):
+	list_propriedade = Propriedade.objects.all()
+	
+	context ={
+	'list_propriedade': list_propriedade,
+	}
+	
+	return render(request, "list/propriedade.html", context)
+

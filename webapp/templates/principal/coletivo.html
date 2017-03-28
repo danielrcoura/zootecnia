@@ -1,0 +1,47 @@
+{% extends "./base.html" %}
+{% load staticfiles %}
+{% load bootstrap3 %}
+
+{% block title %} {% block title_page %} Cadastrar {% endblock %} {% endblock %}
+
+{% block descricao %} "Cadastro do animais" {% endblock %}
+
+{% block body %}
+
+	<script src="{% static 'js/cadastro.js' %}"></script>
+
+	<form method="POST" id="form">
+    	<div class="form-group col-md-8 col-sm-12">
+			<label class="control-label" for="id_tipo_cadastro">Tipo cadastro</label>
+			<div id="id_tipo_cadastro">
+				<label for="id_tipo_cadastro_0" class="radio-inline">
+					<input id="id_tipo_cadastro_0" name="tipo_cadastro"  onClick="location.href='{% url 'enumerado' %}'" type="radio" value="Enumerado" ><span> Enumerado</span>
+				</label>			
+				<label for="id_tipo_cadastro_1" class="radio-inline">
+					<input id="id_tipo_cadastro_1" name="tipo_cadastro" onClick="location.href='{% url 'coletivo' %}'" type="radio" value="Coletivo" checked><span> Coletivo</span>
+				</label>
+			</div>
+		</div>
+    <form>
+
+	<div id="coletivo">
+		<form method="POST" id="form-col">
+	    	{% csrf_token %}
+	    	{% for field in form_col %}
+	    		<div class="col-lg-4 col-sm-12">
+	    			{% bootstrap_field field %}
+	    		</div>
+	    	{% endfor %}
+
+
+			<div class="btn-grup btn-grup-lg col-lg-12 col-sm-12"><br>
+		        <button class="btn btn-danger" type="reset">Reset</button>
+		        <button class="btn btn-success" type="button" onClick="location.href='{% url 'list_animal_col' %}'">Listar</button>
+		        <button class="btn btn-primary" type="submit">Concluir</button>
+
+			</div>
+	    <form>
+	</div>
+
+
+{% endblock %}

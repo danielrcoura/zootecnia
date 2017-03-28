@@ -2,7 +2,6 @@ from django.conf.urls import url
 from .views import (
 	index,
 	dashboard,
-	cadastro,
 	perdas,
 	cobertura,
 	parto,
@@ -11,12 +10,27 @@ from .views import (
 	venda,
 	atividade,
 	propriedade,
+	coletivo,
+	enumerado,
+
+	list_animal_enum,
+	list_animal_col,
+	list_perdas,
+	list_cobertura,
+	list_parto,
+	list_ocorrencia,
+	list_leite,
+	list_venda,
+	list_atividade,
+	list_propriedade,
+	
 	)
 
 urlpatterns = [
     url(r'^$', index, name="index"),
     url(r'^dashboard/$', dashboard, name="dashboard"),
-    url(r'^cadastro/$', cadastro, name="cadastro"),
+    url(r'^cadastro/enumerado/$', enumerado, name="enumerado"),
+    url(r'^cadastro/coletivo/$', coletivo, name="coletivo"),
     url(r'^perdas/$', perdas, name="perdas"),
     url(r'^cobertura/$', cobertura, name="cobertura"),
     url(r'^parto/$', parto, name="parto"),
@@ -26,4 +40,14 @@ urlpatterns = [
 	url(r'^atividade/$', atividade, name="atividade"),
 	url(r'^propriedade/$', propriedade, name="propriedade"),
 
+	url(r'^list/animal-enum/$', list_animal_enum, name="list_animal_enum"),
+    url(r'^list/animal-col/$', list_animal_col, name="list_animal_col"),
+    url(r'^list/perdas/$', list_perdas, name="list_perdas"),
+    url(r'^list/cobertura/$', list_cobertura, name="list_cobertura"),
+    url(r'^list/parto/$', list_parto, name="list_parto"),
+	url(r'^list/ocorrencia/$', list_ocorrencia, name="list_ocorrencia"),
+	url(r'^list/leite/$', list_leite, name="list_leite"),
+	url(r'^list/venda/$', list_venda, name="list_venda"),
+	url(r'^list/atividade/$', list_atividade, name="list_atividade"),
+	url(r'^list/propriedade/$', list_propriedade, name="list_propriedade"),
 ]

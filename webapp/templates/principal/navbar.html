@@ -1,72 +1,60 @@
-<nav class="navbar navbar-default navbar-static-top" role="navigation" style="margin-bottom: 0">
-            
-    <!-- Topo -->
-
+<nav class="navbar navbar-default navbar-fixed-top zoo-navbar" role="navigation" style="margin: 0">
     <div class="navbar-header">
+        <!-- collapse -->
         <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
             <span class="sr-only">Toggle navigation</span>
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
         </button>
-        <a class="navbar-brand" href={% url 'index' %}>Sistema de Controle Zootécnico</a>
+        <!-- logo -->
+        <a class="navbar-brand zoo-brand-a" href={% url 'index' %}><img class="zoo-brand-img" src="../../static/img/logo.jpg"></a>
     </div>
 
-    <!-- Lado -->
+    <div class="collapse navbar-collapse">
+        <ul class="nav navbar-nav navbar-right" style="margin-right: 5px;">
+            <li>
+                <a style="padding: 21px 3px;" href={% url "dashboard" %} data-toggle="tooltip" title="Dashboard"><img class="zoo-img" src="../../static/img/dashboard.png"> Dashboard </a>
+            </li>
+            <li class="dropdown">
+                <a style="padding: 21px 3px;" href="#" class="dropdown-toggle" data-toggle="dropdown" data-toggle="tooltip" title="Cadastro"><img class="zoo-img" src="../../static/img/cadastro.png"> Cadastro <span class="fa arrow"></span><strong class="caret"></strong></a>
+                <ul class="dropdown-menu">
+                    <li>
+                        <a href={% url "enumerado" %}><img class="zoo-img" src="../../static/img/animais.png"> Animais</a>
+                    </li>
+                    <li>
+                        <a href={% url "perdas" %}><img class="zoo-img" src="../../static/img/perda.png"> Perda</a>
+                    </li>
+                    <li>
+                        <a href={% url "ocorrencia" %}><img class="zoo-img" src="../../static/img/ocorrencia.png"> Ocorrência</a>
+                    </li>
+                </ul>
+            </li>
+            <li class="dropdown">
+                <a style="padding: 21px 3px;" href="#" class="dropdown-toggle" data-toggle="dropdown" data-toggle="tooltip" title="Matriz"><img class="zoo-img" src="../../static/img/matriz.png"> Matriz <span class="fa arrow"></span><strong class="caret"></strong></a>
+                <ul class="dropdown-menu">
+                    <li>
+                        <a href={% url "cobertura" %}><img class="zoo-img" src="../../static/img/cobertura.png"> Cobertura</a>
+                    </li>  
+                    <li>
+                        <a href={% url "parto" %}><img class="zoo-img" src="../../static/img/parto.png"> Parto</a>
+                    </li>                             
+                    <li>
+                        <a href={% url "leite" %} data-toggle="tooltip" title="Leite"><img class="zoo-img" src="../../static/img/leite.png"> Leite</a>
+                    </li>
+                </ul>
+            </li>
 
-    <div class="navbar-default sidebar" role="navigation">
-        <div class="sidebar-nav navbar-collapse tabbable">
-            <ul class="nav" id="side-menu">
-                
-                <!-- Barra de Pesquisa -->
+            <li>
+                <a style="padding: 21px 3px;" href={% url "venda" %} data-toggle="tooltip" title="Vendas"><img class="zoo-img" src="../../static/img/vendas.png"> venda </a>
+            </li>
+            <li>
+                <a style="padding: 21px 2px;" href={% url "atividade" %} data-toggle="tooltip" title="Atividades"><img class="zoo-img" src="../../static/img/atividade.png"> atividade </a>
+            </li>
+            <li>
+                <a style="padding: 21px 3px;" href={% url "propriedade" %} data-toggle="tooltip" title="Propriedade"><img class="zoo-img" src="../../static/img/propriedades.png"> propriedade </a>
+            </li>
 
-                <li class="sidebar-search">
-                    <div class="input-group custom-search-form">
-                        <input type="text" class="form-control" placeholder="Pesquisar animais...">
-                        <span class="input-group-btn">
-                        	<button class="btn btn-default" type="button">
-                            	<i class="fa fa-search" style="height: 20px;"></i>
-                        	</button>
-                    	</span>
-                    </div>
-                </li>
-
-                <li><a href={% url "dashboard" %}><i class="fa fa-dashboard fa-fw"></i> Dashboard</a></li>
-                <li>
-                    <a href="#"><i class="fa fa-bar-chart-o fa-fw"></i> Animais<span class="fa arrow"></span></a>
-                    <ul class="nav nav-second-level">
-                        <li>
-                            <a href={% url "cadastro" %}>Cadastrar</a>
-                        </li>
-                        <li>
-                            <a href={% url "perdas" %}>Perda</a>
-                        </li>
-						<li>
-                            <a href={% url "cobertura" %}>Cobertura</a>
-                        </li>                              
-                        <li>
-                            <a href={% url "parto" %}>Parto</a>
-                        </li>
-                        <li>
-                            <a href={% url "ocorrencia" %}>Ocorrência</a>
-                        </li>
-                    </ul>
-                    <!-- /.nav-second-level -->
-                </li>
-                <li>
-                    <a href={% url "leite" %}><i class="fa fa-table fa-fw"></i> Leite</a>
-                </li>
-                <li>
-                    <a href={% url "venda" %}><i class="fa fa-bar-chart-o fa-fw"></i> Vendas</a>
-                </li>
-                <li>
-                    <a href={% url "atividade" %}><i class="fa fa-edit fa-fw"></i> Atividades</a>
-                </li>
-                <li>
-                    <a href={% url "propriedade" %}><i class="fa fa-table fa-fw"></i> Propriedade</a>
-                </li>
-            </ul>
-        </div>
-        <!-- /.sidebar-collapse -->
+        </ul>
     </div>
 </nav>

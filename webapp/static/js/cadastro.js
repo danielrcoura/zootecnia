@@ -1,29 +1,32 @@
+document.getElementById("id_tipo_cadastro_0").onchage = function() {
+   window.location.href = "/cadastro/enumerado"; 
+};
+
+document.getElementById("id_tipo_cadastro_1").onchage = function() {
+   window.location.href = "/cadastro/coletivo"; 
+};
+
 function teste(obj) {
-	var e = document.getElementById("id_tipo");
-	var itemSelecionado = e.options[e.selectedIndex].value;
+    var e = document.getElementByName("tipo_cadastro");
+    var itemSelecionado = e.options[e.selectedIndex].value;
 
 
     switch (itemSelecionado) {
-    case 'Bovino':
-    case 'Ovino':
-    case 'Caprino':
-    case 'Suino':
-	    document.getElementById('enumerado').style.display="block";
-	    document.getElementById('coletivo').style.display="none";
+    case 'Enumerado':
+        window.location.href = "/cadastro/enumerado";
     break
     
-    case 'Equino':
-    case 'Ave':
-    case 'Peixe':
-		document.getElementById('coletivo').style.display="block";
-	    document.getElementById('enumerado').style.display="none";
+    case 'Coletivo':
+        window.location.href = "/cadastro/coletivo";
     break
 
-	case '---------':
-    	document.getElementById('enumerado').style.display="none";
-    	document.getElementById('coletivo').style.display="none";
-    break
     }
 }
 
-	    
+//     window.onload = function(){
+//             document.getElementById('id_tipo').value = itemSelecionado;
+// }
+
+
+
+// document.getElementById('coletivo').style.display="block";

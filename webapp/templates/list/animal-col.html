@@ -1,0 +1,34 @@
+{% extends "./../principal/base.html" %}
+{% load staticfiles %}
+{% load bootstrap3 %}
+
+{% block title %} {% block title_page %} Lista (Futuro Filtro) {% endblock %} {% endblock %}
+
+{% block descricao %} "Apresentação visual das informações mais importantes" {% endblock %}
+
+{% block body%}
+
+<table class="table table-striped table-hover" id="tabela">
+    <thead>
+        <tr>
+            <th>Tipo</th>
+            <th>Raça</th>
+            <th>Quantidade</th>
+            <th>Propriedade</th>
+        </tr>            
+    </thead>
+    <tbody>
+    	{% for field in animais_col %}
+    		<tr>
+	            <td>{{field.tipo}}</td>
+	            <td>{{field.raca}}</td>
+	            <td>{{field.quantidade}}</td>
+	            <td>{{field.propriedade}}</td>
+      		</tr>
+    	{% endfor %}
+        
+    </tbody>
+</table>
+
+
+{% endblock %}

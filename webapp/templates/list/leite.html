@@ -1,0 +1,34 @@
+{% extends "./../principal/base.html" %}
+{% load staticfiles %}
+{% load bootstrap3 %}
+
+{% block title %} {% block title_page %} Lista Lista {% endblock %} {% endblock %}
+
+{% block descricao %} "Apresentação visual das informações mais importantes" {% endblock %}
+
+{% block body%}
+
+<table class="table table-striped table-hover" id="tabela">
+    <thead>
+        <tr>
+            <th>Manhã</th>
+            <th>Tarde</th>
+            <th>Total</th>
+            <th>Data</th>
+        </tr>            
+    </thead>
+    <tbody>
+    	{% for field in list_leite %}
+    		<tr>
+	            <td>{{field.manha}}</td>
+	            <td>{{field.tarde}}</td>
+	            <td>{{field.total}}</td>
+	            <td>{{field.data}}</td>
+      		</tr>
+    	{% endfor %}
+        
+    </tbody>
+</table>
+
+
+{% endblock %}

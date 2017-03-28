@@ -1,0 +1,36 @@
+{% extends "./../principal/base.html" %}
+{% load staticfiles %}
+{% load bootstrap3 %}
+
+{% block title %} {% block title_page %} Lista Propriedade {% endblock %} {% endblock %}
+
+{% block descricao %} "Apresentação visual das informações mais importantes" {% endblock %}
+
+{% block body%}
+
+<table class="table table-striped table-hover" id="tabela">
+    <thead>
+        <tr>
+            <th>Nome</th>
+            <th>Proprietário</th>
+            <th>Endereço</th>
+            <th>Tamanho</th>
+            <th>Observações</th>
+        </tr>            
+    </thead>
+    <tbody>
+    	{% for field in list_propriedade %}
+    		<tr>
+	            <td>{{field.nome}}</td>
+	            <td>{{field.proprietario}}</td>
+	            <td>{{field.endereco}}</td>
+	            <td>{{field.tamanho}}</td>
+                <td>{{field.observacoes}}</td>
+      		</tr>
+    	{% endfor %}
+        
+    </tbody>
+</table>
+
+
+{% endblock %}

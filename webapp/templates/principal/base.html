@@ -17,10 +17,9 @@
     <link href="{% static 'bootstrap/css/bootstrap.min.css' %}" rel="stylesheet">
 
     <!-- Custom CSS -->
-    <link href="{% static 'bootstrap/css/navbar.css' %}" rel="stylesheet">
-
-    <!-- Custom Fonts -->
-    <link href="{% static 'bootstrap/css/font-awesome/css/font-awesome.min.css' %}" rel="stylesheet" type="text/css">
+    <link href="{% static 'css/navbar.css' %}" rel="stylesheet">
+    <link href="{% static 'css/index.css' %}" rel="stylesheet">
+    <link href="{% static 'css/rodape.css' %}" rel="stylesheet">
 
     <!-- Meu CSS -->
     <link href="{% static 'css/base.css' %}" rel="stylesheet">
@@ -31,32 +30,23 @@
 
 <body>
 
+    {% include "./navbar.html" %}
 
-
-    <div id="wrapper">
-
-        <!-- Sidebar -->
-
-        {% include "./navbar.html" %}
-            
-
-        <div id="page-wrapper">
+    <div id="conteudo" class="container">
+        <div class="row">
             <div class="col-md-12 titulo">
                 <h1 title={% block descricao %} {% endblock %}>{% block title_page %} {% endblock %}</h1>
             </div>
 
             {% block body %} {% endblock %}
         </div>
+            
     </div>
+    {% include "./rodape.html" %}
 
 
     <script src="{% static 'bootstrap/js/jquery/jquery.min.js' %}"></script>
-    <script src="{% static 'bootstrap/js-bootstrap/bootstrap.min.js' %}"></script>
-    <script src="{% static 'bootstrap/vendor/metisMenu/metisMenu.min.js' %}"></script>
-
-    <!-- Custom Theme JavaScript -->
-    <script src="{% static 'bootstrap/js/js-sb/sb-admin-2.js' %}"></script>
-
+    <script src="{% static 'bootstrap/js/js-bootstrap/bootstrap.min.js' %}"></script>
 
 </body>
 
