@@ -34,13 +34,16 @@
 
     <div id="conteudo" class="container">
         <div class="row">
-            <div class="col-md-12 titulo">
+            <div class="col-xs-12 col-sm-6 col-md-5 col-lg-4 titulo">
                 <h1 title={% block descricao %} {% endblock %}>{% block title_page %} {% endblock %}</h1>
             </div>
-
-            {% block body %} {% endblock %}
+            <div class="col-xs-12 col-sm-6 col-md-7 col-lg-8" style="margin: 25px 0 15px 0;">
+                {% block pesquisa %} {% endblock %}
+            </div>
         </div>
-            
+        <div class="row">
+        {% block body %} {% endblock %}
+            </div>
     </div>
     {% include "./rodape.html" %}
 

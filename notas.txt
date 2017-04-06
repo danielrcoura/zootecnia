@@ -1,9 +1,21 @@
-1º reset apos submit no formulario 		1
-2º 2 select em perda (provavel radiobox) 	1
-3º pag matriz leite o total deve ser a soma de manha + tarde	3
-4º colocar unidades de medida nas listas	4
-5º adicionar em alguns parametros uma opção de cadastrar rapidamente (visando aprimorar a usabilidade do sistema)	2
-6º adicionar nas listas botões de navegação de pagina e selecao de quandade de itens por pagina 	3
-7º impedir cadastro para valores negativos 		3
-8º poder editar o item ao clicar sobre ele na listas 	3
-9º alterar css para cor tema na tabela		4
+1º TÉCNICO - reset apos submit no formulario 		1
+4º TÉCNICO - colocar unidades de medida nas listas	4
+5º TÉCINCO - adicionar em alguns parametros uma opção de cadastrar rapidamente 2
+6º TÉCNICO - adicionar nas listas botões de navegação de pagina e selecao de quandade de itens por pagina 	3
+7º TÉCNICO - impedir cadastro para valores negativos 		3
+8º TÉCNICO - poder editar o item ao clicar sobre ele na listas 	3
+9º TÉCNICO - alterar css para cor tema na tabela		4
+10º COBERTURA - select reprodutor e matriz 
+11º PARTO - sugerir o reprodutor(select) ao selecionar matriz de acordo com a última cobertura
+12º LEITE - inserir a matriz referente ao leite
+13º LEITE -pag matriz leite o total deve ser a soma de manha + tarde	3
+2º PERDA - selecionar o tipo de animal em perda 
+14º LISTA - pesquisar parte de string (contains) e quando tipo estiver vazio, pesquisar todos os tipos
+
+
+
+DÚVIDAS:
+1º perguntar o intervalo de evolução de um tipo
+2º Quais os tipos de animais que tem evolução
+3º Se precisa de tabela para cadastro de funcionário
+4º Tamanho da propriedade (unidade padrão de propriedade)

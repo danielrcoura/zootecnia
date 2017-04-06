@@ -1,10 +1,11 @@
-{% extends "./base.html" %}
+{% extends "./../principal/base.html" %}
 {% load staticfiles %}
 {% load bootstrap3 %}
 
 {% block title %} {% block title_page %} Propriedade {% endblock %} {% endblock %}
 
 {% block body%} 
+
 	<form method="POST">
         {% csrf_token %}
         {% for field in form_propriedade %}
@@ -19,4 +20,14 @@
             <button class="btn btn-primary" type="submit">Concluir</button>
         </div> 
     <form>
+   
+ <script>
+        document.getElementById('id_nome').value = '{{query.nome}}';
+        document.getElementById('id_proprietario').value = '{{query.proprietario}}';
+        document.getElementById('id_endereco').value = '{{query.endereco}}';
+        document.getElementById('id_tamanho').value = '{{query.tamanho}}';
+        document.getElementById('id_observacoes').value = '{{query.observacoes}}';
+
+    </script>
+
 {% endblock %}

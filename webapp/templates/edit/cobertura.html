@@ -1,13 +1,16 @@
-{% extends "./base.html" %}
+{% extends "./../principal/base.html" %}
 {% load staticfiles %}
 {% load bootstrap3 %}
 
-{% block title %} {% block title_page %} Propriedade {% endblock %} {% endblock %}
+{% block title %} {% block title_page %} Cobertura {% endblock %} {% endblock %}
 
-{% block body%} 
-	<form method="POST">
+
+{% block body %}
+    
+
+    <form method="POST">
         {% csrf_token %}
-        {% for field in form_propriedade %}
+        {% for field in form_cobertura %}
             <div class="col-lg-7">
                 {% bootstrap_field field %}
             </div>
@@ -15,8 +18,8 @@
 
         <div class="btn-grup btn-grup-lg col-lg-12"><br>
             <button class="btn btn-danger " type="reset">Reset</button>
-            <button class="btn btn-success" type="button" onClick="location.href='{% url 'list_propriedade' %}'">Listar</button>
+            <button class="btn btn-success" type="button" onClick="location.href='{% url 'list_cobertura' %}'">Listar</button>
             <button class="btn btn-primary" type="submit">Concluir</button>
-        </div> 
+        </div>
     <form>
 {% endblock %}

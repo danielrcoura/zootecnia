@@ -6,31 +6,92 @@
 
 {% block descricao %} "Apresentação visual das informações mais importantes" {% endblock %}
 
-{% block body%}
+{% block pesquisa %}
+<form method="GET">
+    <div class="input-group">
+        <div class="input-group-btn search-panel">
+            
+            <select name="filtro" id="filtro" class="btn btn-default" style="background-color: #1a8a43; color:white;">
+                <option value="filtro">Filtro</option>
+                <option value="nome">Nome da propriedade</option>
+                <option value="proprietario">Proprietário</option>
+                <option value="endereco">Endereço</option>
+                <option value="tamanho">Tamanho</option>
+            </select>
+        </div>
 
-<table class="table table-striped table-hover" id="tabela">
-    <thead>
-        <tr>
-            <th>Nome</th>
-            <th>Proprietário</th>
-            <th>Endereço</th>
-            <th>Tamanho</th>
-            <th>Observações</th>
-        </tr>            
-    </thead>
-    <tbody>
-    	{% for field in list_propriedade %}
-    		<tr>
-	            <td>{{field.nome}}</td>
-	            <td>{{field.proprietario}}</td>
-	            <td>{{field.endereco}}</td>
-	            <td>{{field.tamanho}}</td>
-                <td>{{field.observacoes}}</td>
-      		</tr>
-    	{% endfor %}
-        
-    </tbody>
-</table>
+        <input type="text" class="form-control" id="pesquisa" name="pesquisa" placeholder="O que você procura?">
+        <span class="input-group-btn">
+            <button class="btn btn-default" type="submit" style="background-color: #1a8a43;"><span class="glyphicon glyphicon-search" style="padding: 3px 0; color:white;"></span></button>
+        </span>
+    </div>
+</form>
+{% endblock %}
+
+{% block body%}
+<div class="row">
+    <table class="table table-striped table-hover" id="tabela">
+        <thead>
+            <tr>
+                <th>Nome</th>
+                <th>Proprietário</th>
+                <th>Endereço</th>
+                <th>Tamanho</th>
+                <th>Observações</th>
+                <th><p align="center" style="margin: 0px;">Ação</p></th>
+            </tr>            
+        </thead>
+        <tbody>
+        	<!-- {% for field in list_propriedade %}
+        		<tr>
+    	            <td>{{field.nome}}</td>
+    	            <td>{{field.proprietario}}</td>
+    	            <td>{{field.endereco}}</td>
+    	            <td>{{field.tamanho}}</td>
+                    <td>{{field.observacoes}}</td>
+          		</tr>
+        	{% endfor %} -->
+            {% for field in query %}
+                <tr>
+                    <td>{{field.nome}}</td>
+                    <td>{{field.proprietario}}</td>
+                    <td>{{field.endereco}}</td>
+                    <td>{{field.tamanho}}</td>
+                    <td>{{field.observacoes}}</td>
+                    <td align="center">
+                    <div class="btn-group">
+                        <button style="padding: 1px 15px;" onclick="editar()" class="glyphicon glyphicon-pencil btn btn-success"></button> 
+                        <button style="padding: 1px 15px;" onclick="perguntar()" class="glyphicon glyphicon-trash btn btn-danger"></button>
+                        </div>
+                        <script>
+                            function editar() {
+                                window.location.href = '{% url 'edit_propriedade' %}?elemento={{field.pk}}&acao=editar';
+                            }
+                            function perguntar(){
+                                var x = confirm("Deseja realmente EXCLUIR???");
+                                if (x==true){
+                                    window.location.href = '?elemento={{field.pk}}&acao=excluir';
+                                }
+                                else{
+
+                                }
+                            }
+                        </script>
+                    </td>
+                </tr>
+            {% endfor %}
+                
+        </tbody>
+    </table>
+
+</div>
+
+<script>
+    alert('pegou');
+    document.getElementById('filtro').value = '{{filtro}}';
+    document.getElementById('pesquisa').value = '{{pesquisa}}';
+
+</script>
 
 
 {% endblock %}

@@ -41,6 +41,9 @@ class Estado(models.Model):
 	def __str__(self):
 		return self.estado
 
+# raça de: bovino, suino, caprino, ovino, equino, aves, peixes
+# evolução de: bovino, 
+# tipos: bovino, suino, caprino, ovino, equino, aves e peixes
 class AnimaisEnum(models.Model):
 	numero = models.IntegerField()
 	peso_nasc = models.FloatField()

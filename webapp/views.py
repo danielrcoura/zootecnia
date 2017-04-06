@@ -1,4 +1,5 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
+
 from .forms import (AnimaisEnumForm, 
 	AnimaisColForm, 
 	CoberturaForm, 
@@ -36,9 +37,10 @@ def enumerado(request):
 		if form_enum.is_valid():
 			post = form_enum.save(commit=False)
 			post.save()
+			form_enum = AnimaisEnumForm()
 	else:
 		form_enum = AnimaisEnumForm()
-		
+			
 	context_enum ={
 	'form_enum': form_enum,
 	}
@@ -157,6 +159,7 @@ def propriedade(request):
 		if form_propriedade.is_valid():
 			post = form_propriedade.save(commit=False)
 			post.save()
+			form_propriedade = PropriedadeForm()
 	else:
 		form_propriedade = PropriedadeForm()
 
@@ -247,11 +250,127 @@ def list_atividade(request):
 	return render(request, "list/atividade.html", context)
 
 def list_propriedade(request):
-	list_propriedade = Propriedade.objects.all()
-	
-	context ={
-	'list_propriedade': list_propriedade,
-	}
-	
+	elemento = request.GET.get('elemento')
+	acao = request.GET.get('acao')
+	print(elemento)
+	if acao == 'editar':
+		pass
+
+	if acao == 'excluir':
+		Propriedade.objects.filter(pk=elemento).delete()
+
+	filtro = request.GET.get('filtro')
+	pesquisa = request.GET.get('pesquisa')
+
+
+	if pesquisa is not '' and filtro != None and filtro != 'filtro':
+		if filtro == 'nome':
+			query = Propriedade.objects.filter(nome__icontains=pesquisa)
+		if filtro == 'proprietario':
+			query = Propriedade.objects.filter(proprietario__icontains=pesquisa)
+		if filtro == 'endereco':
+			query = Propriedade.objects.filter(endereco__icontains=pesquisa)
+		if filtro == 'tamanho':
+			query = Propriedade.objects.filter(tamanho__icontains=pesquisa)
+		context ={"query": query,
+		'filtro': filtro,
+		'pesquisa': pesquisa,
+		}
+
+	else:
+		query = Propriedade.objects.all()
+		filtro = 'filtro'
+		pesquisa = ''
+		context ={'query': query,
+		'filtro': filtro,
+		'pesquisa': pesquisa,
+		}
+		print("to no segundo if")
+
 	return render(request, "list/propriedade.html", context)
 
+def edit_animal_enum(request):
+	query = Propriedade.objects.filter(pk=elemento)
+
+	context = {'query': query}
+
+	return render(request, "edit/propriedade.html", context)
+
+def edit_animal_col(request):
+	query = Propriedade.objects.filter(pk=elemento)
+
+	context = {'query': query}
+
+	return render(request, "edit/propriedade.html", context)
+
+def edit_perdas(request):
+	query = Propriedade.objects.filter(pk=elemento)
+
+	context = {'query': query}
+
+	return render(request, "edit/propriedade.html", context)
+
+def edit_cobertura(request):
+	query = Propriedade.objects.filter(pk=elemento)
+
+	context = {'query': query}
+
+	return render(request, "edit/propriedade.html", context)
+
+def edit_parto(request):
+	query = Propriedade.objects.filter(pk=elemento)
+
+	context = {'query': query}
+
+	return render(request, "edit/propriedade.html", context)
+
+def edit_ocorrencia(request):
+	query = Propriedade.objects.filter(pk=elemento)
+
+	context = {'query': query}
+
+	return render(request, "edit/propriedade.html", context)
+
+def edit_leite(request):
+	query = Propriedade.objects.filter(pk=elemento)
+
+	context = {'query': query}
+
+	return render(request, "edit/propriedade.html", context)
+
+def edit_venda(request):
+	query = Propriedade.objects.filter(pk=elemento)
+
+	context = {'query': query}
+
+	return render(request, "edit/propriedade.html", context)
+
+def edit_atividade(request):
+	query = Propriedade.objects.filter(pk=elemento)
+
+	context = {'query': query}
+
+	return render(request, "edit/propriedade.html", context)
+
+def edit_propriedade(request):
+	if request.method == "POST":
+		teste = request.POST.get('nome')
+		print(teste)
+		form_propriedade = PropriedadeForm()
+		return redirect('list_propriedade')
+	else:
+		form_propriedade = PropriedadeForm()
+		context = {
+		'form_propriedade': form_propriedade
+		}
+	elemento = request.GET.get('elemento')
+	query = Propriedade.objects.filter(pk=elemento).get()
+
+	print(query.proprietario)
+
+	context = {'query': query,
+		'form_propriedade': form_propriedade
+
+	}
+
+	return render(request, "edit/propriedade.html", context)

@@ -6,6 +6,28 @@
 
 {% block descricao %} "Apresentação visual das informações mais importantes" {% endblock %}
 
+{% block pesquisa %}
+<div class="input-group">
+    <div class="input-group-btn search-panel">
+        <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" style="background-color: #1a8a43; color:white;">
+            <span id="search_concept">Filtrar por</span> <span class="caret"></span>
+        </button>
+        <ul class="dropdown-menu" role="menu">
+          <li><a href="#contains">Nome da propriedade</a></li>
+          <li><a href="#its_equal">Proprietário</a></li>
+          <li><a href="#greather_than">Endereço</a></li>
+          <li><a href="#less_than">Tamanho</a></li>
+        </ul>
+    </div>
+    <input type="hidden" name="search_param" value="all" id="search_param">         
+    <input type="text" class="form-control" name="x" placeholder="O que você procura?">
+    <span class="input-group-btn">
+        <button class="btn btn-default" type="button" style="background-color: #1a8a43;"><span class="glyphicon glyphicon-search" style="padding: 3px 0; color:white;"></span></button>
+    </span>
+</div>
+{% endblock %}
+
+
 {% block body%}
 
 <table class="table table-striped table-hover" id="tabela">

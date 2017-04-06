@@ -33,7 +33,7 @@ class PartoForm(forms.ModelForm):
 	
 	class Meta:
 		model = Parto
-		fields = ('num_crias', 'reprodutor', 'matriz', 'data')
+		fields = ('num_crias', 'matriz', 'reprodutor', 'data')
 
 class OcorrenciaForm(forms.ModelForm):
 	

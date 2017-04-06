@@ -23,6 +23,18 @@ from .views import (
 	list_venda,
 	list_atividade,
 	list_propriedade,
+
+	edit_animal_enum,
+	edit_animal_col,
+	edit_perdas,
+	edit_cobertura,
+	edit_parto,
+	edit_ocorrencia,
+	edit_leite,
+	edit_venda,
+	edit_atividade,
+	edit_propriedade,
+	
 	
 	)
 
@@ -50,4 +62,15 @@ urlpatterns = [
 	url(r'^list/venda/$', list_venda, name="list_venda"),
 	url(r'^list/atividade/$', list_atividade, name="list_atividade"),
 	url(r'^list/propriedade/$', list_propriedade, name="list_propriedade"),
+
+	url(r'^edit/animal-enum/$', edit_animal_enum, name="edit_animal_enum"),
+    url(r'^edit/animal-col/$', edit_animal_col, name="edit_animal_col"),
+    url(r'^edit/perdas/$', edit_perdas, name="edit_perdas"),
+    url(r'^edit/cobertura/$', edit_cobertura, name="edit_cobertura"),
+    url(r'^edit/parto/$', edit_parto, name="edit_parto"),
+	url(r'^edit/ocorrencia/$', edit_ocorrencia, name="edit_ocorrencia"),
+	url(r'^edit/leite/$', edit_leite, name="edit_leite"),
+	url(r'^edit/venda/$', edit_venda, name="edit_venda"),
+	url(r'^edit/atividade/$', edit_atividade, name="edit_atividade"),
+	url(r'^edit/propriedade/$', edit_propriedade, name="edit_propriedade"),
 ]
