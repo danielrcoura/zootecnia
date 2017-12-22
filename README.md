@@ -18,10 +18,9 @@ python3 manage.py runserver
 ```
 
 ## Página Admin
-Para cadastrar animais é preciso antes cadastrar as raças, o sexo dos animais, as evoluções e os estados (ex. vivo, morto, vendido)
-isso pode ser feito na página de Admin.  
-Para usar a página de admin crie um super usuário com o comando abaixo:
+Para cadastrar animais é preciso antes cadastrar as raças, o sexo dos animais, as evoluções e os estados (ex. vivo, morto, vendido), isso pode ser feito na página de Admin.  
+Para usar a página de Admin crie um super usuário com o comando abaixo:
 ```
 python3 manage.py createsuperuser
 ```
-A página pode ser acessada pelo link: 127.0.0.1:8000/admin
+A página pode ser acessada pelo link: [127.0.0.1:8000/admin](127.0.0.1:8000/admin)
