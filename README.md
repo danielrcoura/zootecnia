@@ -4,7 +4,7 @@ aves e peixes. Pode-se ter o controle das coberturas, partos, ocorrências, cole
 perdas de animais, vendas de produtos entre outras atividades de rotina.
 
 
-## Intrudução
+## Introdução
 Visto a necessidade de um maior controle em relação aos animais de propriedades
 agrícolas, o sistema de cadastramento fornece uma interface simples de interação com o usuário.  
 Através dos dados obtidos o usuário pode ter uma noção maior dos problemas e tomar decisões
